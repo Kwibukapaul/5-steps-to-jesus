@@ -1,0 +1,7 @@
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import { stories } from "@/lib/data";
+export const instant = false;
+export function generateStaticParams() { return stories.map(s => ({ slug: s.slug })); }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const story = stories.find(s => s.slug === slug); return { title: story?.title ?? "Story" }; }
+export default async function StoryPage({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const story = stories.find(s => s.slug === slug); if (!story) notFound(); return <main className="pt-28"><article className="mx-auto max-w-4xl px-5 py-20 lg:px-8"><p className="text-xs font-bold uppercase tracking-widest text-[#d4a72c]">{story.category} · {story.date}</p><h1 className="mt-4 font-serif text-4xl font-bold leading-tight text-[#123b6d] md:text-6xl">{story.title}</h1><Image src={story.image} alt="" width={1200} height={700} className="mt-10 h-[320px] w-full rounded-3xl object-cover md:h-[480px]" /><div className="prose prose-lg mt-10 max-w-3xl text-[#596579]"><p>{story.excerpt}</p><p>Change begins with a person, a conversation and the courage to believe that tomorrow can be different. Through practical support and patient relationships, this is what we get to witness in Rwanda.</p><p>Thank you for being part of a community that chooses compassion, dignity and hope.</p></div></article></main>; }

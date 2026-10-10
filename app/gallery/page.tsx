@@ -1,0 +1,5 @@
+import Image from "next/image";
+import { SectionHeading } from "@/components/site";
+export const metadata = { title: "Gallery" };
+const images = ["https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1000&q=85", "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1000&q=85", "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=85", "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1000&q=85"];
+export default function Gallery() { return <main className="pt-28"><section className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="Gallery" title="A glimpse of community, courage and joy." /><div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{images.map((src, i) => <Image key={src} src={src} alt={`Community moment ${i + 1}`} width={1000} height={700} className="h-72 w-full rounded-2xl object-cover" />)}</div></div></section></main>; }

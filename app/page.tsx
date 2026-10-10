@@ -1,69 +1,15 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, HeartHandshake, Users, Sparkles } from "lucide-react";
+import { FiveSteps, ProjectCard, SectionHeading, StoryCard } from "@/components/site";
+import { projects, site, stories } from "@/lib/data";
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+  return <main>
+    <section className="relative overflow-hidden bg-[#123b6d] px-5 pb-24 pt-40 text-white lg:px-8"><div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(18,59,109,.98)_25%,rgba(18,59,109,.72)),url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2000&q=85')] bg-cover bg-center" /><div className="relative mx-auto grid max-w-7xl items-end gap-12 lg:grid-cols-[1.1fr_.9fr]"><div><p className="mb-5 text-sm font-bold uppercase tracking-[0.25em] text-[#f3e3a3]">{site.support}</p><h1 className="max-w-3xl font-serif text-5xl font-bold leading-[1.05] md:text-7xl">Give hope.<br />Empower people.<br /><span className="text-[#f3e3a3]">Share Jesus.</span></h1><p className="mt-7 max-w-xl text-lg leading-8 text-white/78">{site.description}</p><div className="mt-9 flex flex-wrap gap-4"><Link href="/about" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-bold text-[#123b6d]">Learn more <ArrowRight size={17} /></Link><Link href="/support" className="inline-flex items-center gap-2 rounded-full bg-[#d4a72c] px-6 py-3 font-bold text-[#172033]">Support the mission <HeartHandshake size={17} /></Link></div></div><div className="hidden rounded-3xl border border-white/20 bg-white/10 p-7 backdrop-blur-sm lg:block"><p className="text-sm font-bold text-[#f3e3a3]">OUR APPROACH</p><p className="mt-4 font-serif text-3xl leading-tight">People first. Practical action. Lasting hope.</p><div className="mt-8 grid grid-cols-3 gap-3 text-center text-xs text-white/75"><div><Users className="mx-auto mb-2 text-[#f3e3a3]" size={22} />Community</div><div><Sparkles className="mx-auto mb-2 text-[#f3e3a3]" size={22} />Dignity</div><div><HeartHandshake className="mx-auto mb-2 text-[#f3e3a3]" size={22} />Faith</div></div></div></div></section>
+    <section className="bg-[#f7f9fc] px-5 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="Our five steps" title="A simple way to turn compassion into action." text="We believe lasting change begins with a relationship. Our five steps guide the way we serve communities in Rwanda." /><FiveSteps /></div></section>
+    <section className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><SectionHeading eyebrow="Where we serve" title="Practical support. Spiritual hope." text="Every project is designed to meet real needs while walking alongside people with dignity and care." /><Link href="/work" className="inline-flex items-center gap-2 font-bold text-[#123b6d]">Explore our work <ArrowRight size={17} /></Link></div><div className="mt-12 grid gap-6 md:grid-cols-3">{projects.map(project => <ProjectCard key={project.title} project={project} />)}</div></div></section>
+    <section className="bg-[#123b6d] px-5 py-16 text-white lg:px-8"><div className="mx-auto grid max-w-7xl gap-8 text-center md:grid-cols-4"><div><p className="font-serif text-5xl font-bold text-[#f3e3a3]">29</p><p className="mt-2 text-sm text-white/70">Women trained</p></div><div><p className="font-serif text-5xl font-bold text-[#f3e3a3]">6</p><p className="mt-2 text-sm text-white/70">Months of tailoring</p></div><div><p className="font-serif text-5xl font-bold text-[#f3e3a3]">5</p><p className="mt-2 text-sm text-white/70">Steps with Jesus</p></div><div><p className="font-serif text-5xl font-bold text-[#f3e3a3]">1</p><p className="mt-2 text-sm text-white/70">Mission</p></div></div></section>
+    <section className="bg-[#f7f9fc] px-5 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><div className="flex items-end justify-between gap-5"><SectionHeading eyebrow="From the community" title="Stories of hope in motion." /><Link href="/stories" className="hidden items-center gap-2 font-bold text-[#123b6d] md:flex">View all stories <ArrowRight size={17} /></Link></div><div className="mt-10 grid gap-6 md:grid-cols-3">{stories.map(story => <StoryCard key={story.slug} story={story} />)}</div></div></section>
+    <section className="px-5 py-20 lg:px-8"><div className="mx-auto max-w-4xl rounded-3xl bg-[#f3e3a3] px-7 py-12 text-center md:px-16"><p className="text-4xl text-[#d4a72c]">“</p><p className="font-serif text-2xl font-bold leading-relaxed text-[#123b6d] md:text-4xl">Hope grows when we choose to walk with people, not just work for them.</p><p className="mt-5 text-sm font-bold uppercase tracking-widest text-[#596579]">5 Steps with Jesus</p></div></section>
+  </main>;
 }
